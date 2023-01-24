@@ -35,7 +35,7 @@ input.ng-invalid.ng-touched {
 
 .login-form{ 
 	width:330px;
-	margin:125px 0px 0px 0px;
+	// margin:125px 0px 0px 0px;
 }
 
 .sign-up{
@@ -70,22 +70,17 @@ input.ng-invalid.ng-touched {
     position: absolute; 
     top: 79px;
 }
+@media only  screen  and (min-width:300px) and (max-width:848px){
+   
+.login-form{ 
+	
+	margin:0px;
+}
+}
 
-
-
-#myVideo {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%; 
-    min-height: 100%;
-  }
+// @media only  screen  and (max-width:470px){
+//     body{
+//         height: 100vh;
+//     }
   
-  .content {
-    position: fixed;
-    bottom: 0;
-    // background: rgba(0, 0, 0, 0.5);
-    color: #f1f1f1;
-    width: 100%;
-    padding: 20px;
-  }
+// }
