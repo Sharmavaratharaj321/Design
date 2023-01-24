@@ -1,0 +1,133 @@
+<div class="container">
+    <div class="registration mx-auto d-block w-100">
+        <div class="card p-4">
+            <div class="Form_back">
+                <div class="page-header text-center">
+                    <img src="./../../assets/img/edit.jpg "width="118px" style="padding: 6px;
+                    margin-bottom: 16px;" />
+                </div>
+                <form id="member-registration" #f="ngForm" (ngSubmit)="onSubmit(f)"
+                    [Matchpassword]="['Password', 'ConfirmPassword']" class="form-validate form-horizontal well">
+                    <fieldset>
+                        <div class="d-flex" style="grid-gap:45px;">
+                            <div class="form-group position-relative">
+                                <label class="Label_Title pt-4" for="exampleInputPassword1">FirstName</label>
+                                <div class="inputBx">
+                                    <input class="form-control mb-2" type="text" name="firstName" #firstName="ngModel"
+                                        [(ngModel)]="userData.firstName" minlength="10"
+                                        [class.is-valid]="firstName.valid && (firstName.dirty || firstName.touched)"
+                                        required autocomplete="off">
+
+                                </div>
+                                <div class="form-control-feedback"
+                                    *ngIf="firstName.errors && (firstName.dirty || firstName.touched)">
+                                    <p class="text-danger" *ngIf="firstName.errors['required']">Firstname is required
+                                    </p>
+                                    <p class="text-danger" *ngIf="firstName.errors['minlength']">Firstname at least 8
+                                        characters</p>
+                                </div>
+                            </div>
+                            <div class="form-group position-relative">
+                                <label class="Label_Title pt-4 " for="exampleInputPassword1">lastName</label>
+                                <div class="inputBx">
+                                    <input class="form-control" type="text" name="lastName" #lastName="ngModel"
+                                        [(ngModel)]="userData.lastName" minlength="10"
+                                        [class.is-valid]="lastName.valid && (lastName.dirty || lastName.touched)"
+                                       required autocomplete="off">
+                                </div>
+                                <div class="form-control-feedback"
+                                    *ngIf="lastName.errors && (lastName.dirty || lastName.touched)">
+                                    <p class="text-danger" *ngIf="lastName.errors['required']">Lastname is required</p>
+                                    <p class="text-danger" *ngIf="lastName.errors['minlength']">Lastname at least 8
+                                        characters</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex" style="grid-gap:45px;">
+                            <div class="form-group position-relative">
+                                <label class="Label_Title pt-4" for="exampleInputEmail1">EmailAddress</label>
+                                <input type="email" class="form-control mb-2" id="exampleInputEmail1"
+                                    [(ngModel)]="userData.EmailAddress" name="EmailAddress" #EmailAddress="ngModel"
+                                    pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                                    [class.is-valid]="EmailAddress.valid && (EmailAddress.dirty || EmailAddress.touched)"
+                                    EmailAddress required>
+                                <div class="form-control-feedback "
+                                    *ngIf="EmailAddress.errors && (EmailAddress.dirty || EmailAddress.touched)">
+                                    <p class="text-danger" *ngIf="EmailAddress.errors['required']">EmailAddress is
+                                        required</p>
+                                    <p class="text-danger" *ngIf="EmailAddress.errors['pattern']">
+                                        Enter a valid EmailAddress
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="form-group position-relative">
+                                <label class="Label_Title pt-4" for="exampleInputEmail1">PhoneNumber</label>
+                                <input class="form-control" type="number" name="mobile" #mobile="ngModel"
+                                    [(ngModel)]="userData.mobile"
+                                    [class.is-valid]="mobile.valid && (mobile.dirty || mobile.touched)"
+                                    autocomplete="off" pattern="^((\\+91-?)|0)?[0-9]{10}$" required autocomplete="off">
+                                <div class="form-control-feedback "
+                                    *ngIf="mobile.errors && (mobile.dirty || mobile.touched)">
+                                    <p class="text-danger" *ngIf="mobile.errors['required']">PhoneNumber is required</p>
+                                    <p class="text-danger" *ngIf="mobile.errors['pattern']">
+                                        Enter a valid PhoneNumber
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex" style="grid-gap:45px;">
+                            <div class="form-group position-relative">
+                                <label for="exampleInputPassword1" class=" Label_Title pt-4">Password</label>
+                                <input type="password" class="form-control form-control mb-3" 
+                                    id="exampleInputPassword1" [(ngModel)]="userData.Password" name="Password"
+                                    minlength="8" #Password="ngModel"
+                                    [class.is-valid]="Password.valid && (Password.dirty || Password.touched)"
+                                    pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,16}"
+                                    required>
+                                <div class="form-control-feedback"
+                                    *ngIf="Password.errors && (Password.dirty || Password.touched)">
+                                    <p class="text-danger" *ngIf="Password.errors['required']">Password is required</p>
+                                    <p class="text-danger" *ngIf="Password.errors['minlength']">
+                                        Password must be at least 8 characters long
+                                    </p>
+                                    <p *ngIf="Password.errors['pattern']">
+                                        Please Enter a Valid Password
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="form-group position-relative">
+                                <label class="Label_Title pt-4" for="exampleInputPassword1">Confirm Password</label>
+                                <div class="inputBx password">
+                                    <input type="password" name="ConfirmPassword" class="form-control"
+                                        name="ConfirmPassword" #ConfirmPassword="ngModel"
+                                        [(ngModel)]="userData.ConfirmPassword" minlength="8"
+                                        [class.is-valid]="ConfirmPassword.valid && (ConfirmPassword.dirty || ConfirmPassword.touched)"
+                                        required>
+                                    <div class="form-control-feedback"
+                                        *ngIf="ConfirmPassword.errors && (ConfirmPassword.dirty || ConfirmPassword.touched)">
+                                        <p class="text-danger" *ngIf="ConfirmPassword.errors['required']">
+                                            ConfirmPassword  is required</p>
+                                        <p *ngIf="ConfirmPassword.errors['matching']">
+                                            ConfirmPassword does not match
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex pt-4">
+                            <div class="form-group" style="flex-grow: 1;">
+                                <a href="">Go To LogIn</a>
+                            </div>
+                            <div class="form-group ">
+                                <button type="submit" class="btn btn-primary ">Submit</button>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+
+.form-control-feedback {
+    position: absolute; 
+    top: 86px;
+}
+
+.text-danger {
+    color: #dc3545!important;
+    font-size: 14px;
+    background-color: bisque;
+}
+
+.form-control.is-valid, .was-validated .form-control:valid {
+//  border-color: #198754;
+//     padding-right: calc(1.5em + 0.75rem);
+//      background-image: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e); 
+//     background-repeat: no-repeat;
+//     background-position: right calc(0.375em + 0.1875rem) center;
+//     background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+@media (min-width:767px){
+    .registration{
+        max-width: 492px;
+    }
+}
+.card{
+    margin-top: 70px;
+    background-color: #EDF0F2;
+    box-shadow: 2px 3px 11px 0px #698dc4;
+    border: none;
+
+}
+.Form_back{
+  
+    background-repeat: no-repeat;
+    background-size: 100%;
+    // padding: 26px;
+}
+.form-control{
+    
+    background-color: #E6F3FE;
+    border-color: aqua;
+    
+}
+.Label_Title{
+    font-family: revert;
+    font-size: 14px;
+    font-weight: 600;
+}
+.btn{
+    border: 1px solid;
+    background-color: #129bbf;
+    color: white;
+    font-family: system-ui;
+    font-weight:400;
+}

@@ -1,0 +1,68 @@
+<div class="global-container ">
+    <div class="card login-form">
+        <div class="card-body p-4 ">
+            <div class="Form_back">
+                <div class="text-center">
+                    <img src="assets/img/Login_logo.jpg" style="width: 28%;" />
+                </div>
+                <div class="card-text">
+                    <!--
+			<div class="alert alert-danger alert-dismissible fade show" role="alert">Incorrect username or password.</div> -->
+                    <form>
+                        <!-- to error: add class "has-danger" -->
+                        <div class="form-group position-relative">
+                            <label for="exampleInputEmail1" class="mb-2 Label_Title pt-3">Email address</label>
+                            <input type="email" class="mb-3 form-control form-control-sm  " id="exampleInputEmail1"
+                                style="padding: 6px;" aria-describedby="emailHelp" [(ngModel)]="userData.email"
+                                name="email" #email="ngModel" email
+                                [class.is-valid]="email.valid && (email.dirty || email.touched)"
+                                pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+                            <div class="form-control-feedback " *ngIf="email.errors && (email.dirty || email.touched)">
+                                <p class="text-danger" *ngIf="email.errors['required']">Email is required</p>
+                                <p class="text-danger" *ngIf="email.errors['pattern']">
+                                    Enter a valid Email
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group position-relative">
+                            <label for="exampleInputPassword1" class="mb-2 Label_Title pt-3">Password</label>
+
+                            <input type="password" class="form-control form-control-sm mb-3" style="padding: 6px;"
+                                id="exampleInputPassword1" [(ngModel)]="userData.password" name="password" minlength="8"
+                                #password="ngModel"
+                                [class.is-valid]="password.valid && (password.dirty || password.touched)"
+                                pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,16}"
+                                required>
+                            <div class="form-control-feedback"
+                                *ngIf="password.errors && (password.dirty || password.touched)">
+                                <p class="text-danger" *ngIf="password.errors['required']">Password is required</p>
+                                <p class="text-danger" *ngIf="password.errors['minlength']">
+                                    Password must be at least 8 characters long
+                                </p>
+                                <p *ngIf="password.errors['pattern']">
+                                    Please Enter a Valid Password
+                                </p>
+                            </div>
+                            <div class="d-flex ">
+                                <div class="pt-3 flex-grow-1">
+                                    <a href="#" style=" font-size:12px;">Forgot password?</a>
+                                </div>
+                                <div class="text-end ">
+                                    <button type="submit" class="btn  btn-block">Sign In</button>
+                                </div>
+                            </div>
+                           
+                        </div>
+
+                        
+
+
+                        <div class="sign-up">
+                            Don't have an account? <a href="register">Register Now</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
